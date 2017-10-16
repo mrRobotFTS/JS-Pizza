@@ -1,10 +1,13 @@
 @mainColor: blue;
 @ColorTopPanel: black;
-@heightTopPanel:50px;
+@heightTopPanel:63px;
 @WidthRightPanel:250px;
 
 .myCont{
   padding-right:@WidthRightPanel;
+}
+body{
+  min-width: 400px;
 }
 
 .secondColumn{
@@ -87,6 +90,70 @@
   opacity:0.8;
 }
 
+.firstRow, .secondRow{
+  color: #d2d2d2;
+  margin-left:100px;
+  margin-right: @WidthRightPanel+20px;
+  padding-top:5px;
+  padding-bottom:5px;
+
+}
+.firstRow{
+  border-bottom: 1px solid grey;
+}
+.secondRow{
+  color:white;
+}
+
+.telephonNumber{
+  margin-right: 30px;
+  font-size:0.4cm;
+}
+
+.timeOfWork{
+  margin-right: 30px;
+  font-size:0.3cm;
+}
+
+.freeDelivery{
+  margin-right: 30px;
+  font-size:0.35cm;
+}
+
+@media (max-width: 768px) {
+  .telephonNumber{
+    font-size: 0.3cm;
+    margin-right: 0;
+  }
+
+  .timeOfWork{
+    display: none;
+  }
+
+  .freeDelivery{
+    display: none;
+  }
+}
+
+@media (max-width: 568px) {
+  .telephonNumber{
+    font-size: 0.27cm;
+    margin-right: 0;
+  }
+
+  .pizzaLabel{
+    display: none;
+  }
+
+}
+
+@media (max-width: 	992px) {
+
+  .freeDelivery{
+    display: none;
+  }
+}
+
 .image1 {
   position:fixed;
   top:0;
@@ -133,8 +200,17 @@
   width:70px;
   line-height: 2ch;
   font-size: 0.43cm;
-
 }
+
+.percentSaleLabel{
+  width:60px;
+  left:5px;
+  border-top: 1px dashed rgba(164, 0, 0, 0.72);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+}
+
 
 .percentSaleLabel{
   bottom:10px;
