@@ -1,3 +1,101 @@
 @mainColor: blue;
+@ColorTopPanel: black;
+@heightTopPanel:50px;
+@WidthRightPanel:250px;
+
+.myCont{
+  padding-right:@WidthRightPanel;
+}
+
+.secondColumn{
+  position:fixed;
+  width:@WidthRightPanel;
+  height:100%;
+  top:0;
+  right:0;
+  background: white;
+  border-left:2px solid #c4c4c4;
+}
+
+
+.orderLabel{
+  padding:15px;
+  position: absolute;
+  top:0;
+}
+
+.endOrderLabel{
+  padding:15px;
+  position: absolute;
+  bottom:0;
+}
+
+.labelOrderDelete{
+  font-size: 0.25cm;
+  color:gray;
+  margin-left: 10px;
+}
+
+.sumLabel{
+  font-size: 0.35cm;
+}
+
+.amountLabel{
+  float:right;
+}
+
+.orderButton{
+  width:80%;
+  left: 50px;
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+
+.buyList{
+  position: absolute;
+    text-overflow-y: scroll;
+    background: #e9e9e9;
+    width:100%;
+    top:50px;
+    bottom:0px;
+    margin-bottom: 100px;
+}
+
+
+
+
+#pizza_list{
+  max-width:1000px;
+  padding-top:@heightTopPanel;
+}
+
+#invis{
+  top:0;
+  position:fixed;
+  width: 100%;
+  height:@heightTopPanel;
+  background: white;
+}
+
+#cart{
+  position:fixed;
+  width: 100%;
+  height:@heightTopPanel;
+  background: lighten(@ColorTopPanel,20%);
+  top:0;
+  opacity:0.8;
+}
+
+
+.topPizzaKMA{
+  position:fixed;
+  top:0;
+  left:20px;
+  transform:  scale(1, -1);
+  width:70px;
+  height:130px;
+}
+
 
 @import "pizza/pizza-card";
