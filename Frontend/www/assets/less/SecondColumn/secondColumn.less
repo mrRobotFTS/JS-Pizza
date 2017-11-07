@@ -1,0 +1,102 @@
+@heightTopBot:@heightTopPanel;
+@heightBottom: @heightTopPanel*1.7;
+
+.secondColumn{
+  position:fixed;
+  width:@WidthRightPanel;
+  height:100%;
+  top:0;
+  right:0;
+  background: white;
+  border-left:0.5px solid #c4c4c4;
+  box-shadow: rgba(0,0,0,.2) -3px 3px 10px;
+}
+
+
+.orderLabel{
+  padding-top:@heightTopBot/3;
+  position: absolute;
+  box-sizing: content-box;
+  width:100%;
+  height:@heightTopBot;
+  top:0;
+  text-align: center;
+
+
+  .labelOrder{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 17px;
+  }
+
+  .amountOfBoughtPizz{
+    border-radius: 1cm;
+    background-color:@mainColor;
+  }
+
+  .labelOrderDelete{
+    color:gray;
+    margin-left: 10px;
+    padding-right:30px;
+    margin-top:5px;
+    float:right;
+    font-size: 10px;
+    line-height: 11px;
+    font-weight: 400;
+  }
+
+}
+
+.endOrderLabel{
+  padding:10px;
+  position: absolute;
+  bottom:0;
+  height:@heightBottom;
+  width:100%;
+  border-top: 1px solid rgba(0,0,0,.1);
+
+  .sumLabel{
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .amountLabel{
+    font-weight: 700;
+    font-size: 20px;
+    float:right;
+  }
+
+  .buttonOrderDiv{
+
+    padding:20px;
+
+    .orderButton{
+      width:100%;
+      left: 50px;
+      border-color: darken(@mainColor,5%);
+      background-color: lighten(@mainColor,2%);
+    }
+    .orderButton:hover{
+      background-color: darken(@mainColor,1%);
+    }
+
+  }
+
+
+
+}
+
+
+.buyList{
+  position: absolute;
+  text-overflow-y: scroll;
+  background: #F5F5F5;
+  width:100%;
+  top:@heightTopBot;
+  bottom:0px;
+  margin-bottom: @heightBottom;
+
+  overflow-y:scroll;
+  overflow-x:hidden;
+
+}

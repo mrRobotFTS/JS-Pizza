@@ -3,8 +3,34 @@
     max-width: 250px;
   }
 
+  box-shadow: #959595 0px 0px 1px;
+
   h3 {
     color: @mainColor;
     background-color: lighten(@mainColor, 45%);
+    font-size: 30px;
+    color: darken(@mainColor,5%);
+    font-weight: 700;
+    font-family: "Helvetica Neue";
   }
+
+  .description {
+    font-size: 14px;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pizza-small, .pizza-big{
+    text-align:center;
+  }
+
+  .btn-warning{
+    background-image: linear-gradient(to bottom,#f0ad4e 0,@mainColor 100%);
+  }
+  .btn-warning:hover{
+    background-image: linear-gradient(to bottom,#f0ad4e 0, darken(@mainColor,6%) 100%);
+  }
+
 }
+

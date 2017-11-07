@@ -1,12 +1,11 @@
-@mainColor: orange;
+@mainColor: #ec890e;
 @ColorTopPanel: black;
-@heightTopPanel:63px;
-@WidthRightPanel:250px;
+@heightTopPanel:80px;
+@WidthRightPanel:330px;
 
 .myCont{
-  padding-right:@WidthRightPanel;
-  margin-top: @heightTopPanel;
-
+  padding-right:@WidthRightPanel+15px;
+  padding-top: @heightTopPanel;
 }
 
 .allPizz{
@@ -19,14 +18,12 @@
 .labelAllPizz{
   font-size:0.6cm;
 }
-.amountOfBoughtPizz{
-  border-radius: 1cm;
-}
+
 
 @media (max-width: 990px) {
-  .allPizz{
+  /*.allPizz{
     display:none;
-  }
+  }*/
 }
 
 .amountOfAllPizz{
@@ -38,21 +35,19 @@
 
 .typeOfPizzs{
   text-align: center;
+  //-webkit-padding-start:0px;
 }
 
 .typeOfPizz{
   color:orange;
-  margin-right:20px;
-  padding:8px;
-  padding-bottom:5px;
-  padding-top:5px;
+  background-color: white;
+  border:0;
+  padding:7px 15px;
   border-radius: 0.13cm;
 }
 
-.typeOfPizz:first-child{
-  color:white;
-  background: orange;
-}
+
+
 
 @media (max-width: 990px) {
   .typeOfPizzs{
@@ -74,62 +69,7 @@
   padding-right: 10px;
 }
 
-
-.secondColumn{
-  position:fixed;
-  width:@WidthRightPanel;
-  height:100%;
-  top:0;
-  right:0;
-  background: white;
-  border-left:2px solid #c4c4c4;
-}
-
-
-.orderLabel{
-  padding:15px;
-  position: absolute;
-  top:0;
-}
-
-.endOrderLabel{
-  padding:15px;
-  position: absolute;
-  bottom:0;
-}
-
-.labelOrderDelete{
-  font-size: 0.25cm;
-  color:gray;
-  margin-left: 10px;
-}
-
-.sumLabel{
-  font-size: 0.35cm;
-}
-
-.amountLabel{
-  float:right;
-}
-
-.orderButton{
-  width:80%;
-  left: 50px;
-  margin-left: 10%;
-  margin-top: 10px;
-}
-
-
-.buyList{
-  position: absolute;
-    text-overflow-y: scroll;
-    background: #e9e9e9;
-    width:100%;
-    top:50px;
-    bottom:0px;
-    margin-bottom: 100px;
-}
-
+@import "SecondColumn/secondColumn";
 
 
 
@@ -139,148 +79,12 @@
   padding-top:30px;
 }
 
-#invis{
-  top:0;
-  position:fixed;
-  width: 100%;
-  height:@heightTopPanel;
-  background: white;
-}
-
-#cart{
-  position:fixed;
-  width: 100%;
-  height:@heightTopPanel;
-  background: lighten(@ColorTopPanel,20%);
-  top:0;
-  opacity:0.8;
-}
-
-.firstRow, .secondRow{
-  color: #d2d2d2;
-  margin-left:100px;
-  margin-right: @WidthRightPanel+20px;
-  padding-top:5px;
-  padding-bottom:5px;
-
-}
-.firstRow{
-  border-bottom: 1px solid grey;
-}
-.secondRow{
-  color:white;
-}
-
-.telephonNumber{
-  margin-right: 30px;
-  font-size:0.4cm;
-}
-
-.timeOfWork{
-  margin-right: 30px;
-  font-size:0.3cm;
-}
-
-.freeDelivery{
-  margin-right: 30px;
-  font-size:0.35cm;
-}
-
-@media (max-width: 768px) {
-  .telephonNumber{
-    font-size: 0.3cm;
-    margin-right: 0;
-  }
-
-  .timeOfWork{
-    display: none;
-  }
-
-  .freeDelivery{
-    display: none;
-  }
-}
-
-@media (max-width: 568px) {
-  .telephonNumber{
-    font-size: 0.27cm;
-    margin-right: 0;
-  }
-
-  .pizzaLabel{
-    display: none;
-  }
-
-}
-
-@media (max-width: 	992px) {
-
-  .freeDelivery{
-    display: none;
-  }
-}
-
-.image1 {
-  position:fixed;
-  top:0;
-  left:20px;
-  text-align: center;
-}
-
-.topPizzaKMA, .bottomPizzaKMA{
-  position:absolute;
-  width:70px;
-  height:150px;
-}
-
-.topPizzaKMA{
-  top:0;
-  transform:  scale(1, -1);
-}
-.bottomPizzaKMA{
-  bottom:0;
-  height:190px;
-}
-
-.KMAlabel{
-  position:absolute;
-  color: white;
-  top:10px;
-  width:70px;
-
-  font-size: 0.45cm;
-}
-
-.image2{
-  position:fixed;
-  left:20px;
-  text-align: center;
-  bottom:0;
-
-}
-
-.saleLabel, .percentSaleLabel{
-  position:absolute;
-  color: white;
-  bottom:35px;
-  width:70px;
-  line-height: 2ch;
-  font-size: 0.43cm;
-}
-
-.percentSaleLabel{
-  width:60px;
-  left:5px;
-  border-top: 1px dashed rgba(164, 0, 0, 0.72);
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 2px;
+.type{
+  color: #959595;
 }
 
 
-.percentSaleLabel{
-  bottom:10px;
-}
 
-
+@import "SiteIcon/siteIcon";
+@import "SecondColumn/topPanel";
 @import "pizza/pizza-card";

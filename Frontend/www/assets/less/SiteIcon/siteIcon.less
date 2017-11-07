@@ -1,0 +1,76 @@
+@widthIcon:95px;//70
+@heighTopIcon:90px;//150
+@heighBottomIcon:110px;
+
+
+.image1 {
+  position:fixed;
+  top:0;
+  left:10px;
+  text-align: center;
+  height: @heighTopIcon;
+  width: @widthIcon;
+  background-color: #ea862e;
+}
+
+.topPizzaKMA, .bottomPizzaKMA{
+  position:absolute;
+  width:@widthIcon;
+  left:0px;
+  height:11px;
+}
+
+.topPizzaKMA{
+  top:@heighTopIcon;
+  transform:  scale(1, -1);
+}
+.bottomPizzaKMA{
+  bottom:@heighBottomIcon;
+}
+
+.KMAlabel, .KMAlabel-2{
+  position:absolute;
+  color: white;
+  top:@heighTopIcon*2/17;
+  font-size:20px;
+  width:@widthIcon;
+  font-size: 20px;
+  //font-size: 0.45cm;
+}
+
+.KMAlabel-2{
+  top:@heighTopIcon*6.4/17;
+  font-size: 23px;
+}
+
+.image2{
+  position:fixed;
+  left:10px;
+  text-align: center;
+  bottom:0;
+  width:@widthIcon;
+  height:@heighBottomIcon;
+  background-color: #ea862e;
+}
+
+.saleLabel, .percentSaleLabel{
+  position:absolute;
+  left:0px;
+  color: white;
+  bottom:@heighBottomIcon/3;
+  width:@widthIcon;
+  line-height: 2ch;
+  font-size: 0.43cm;
+}
+
+
+.percentSaleLabel{
+  width:@widthIcon*3/4;
+  left:@widthIcon*1/8;
+  border-top: 1px dashed rgba(164, 0, 0, 0.72);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  bottom:10px;
+}
+

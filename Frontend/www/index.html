@@ -18,101 +18,245 @@
 
 
 
-<div class="container myCont">
+<div class="container-fluid myCont">
 
     <div class="allPizz">
           <span class="labelAllPizz"><b>Усі піци</b></span>
           <span class="label label-warning amountOfAllPizz">6</span>
     </div>
     <div class="typeOfPizzs">
-        <span class="typeOfPizz"><b>Усі</b></span>
-        <span class="typeOfPizz"><b>М'ясні</b></span>
-        <span class="typeOfPizz"><b>З ананасами</b></span>
-        <span class="typeOfPizz"><b>З грибами</b></span>
-        <span class="typeOfPizz"><b>З морепродуктами</b></span>
-        <span class="typeOfPizz"><b>Вега</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>Усі</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>М'ясні</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>З ананасами</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>З грибами</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>З морепродуктами</b></span>
+        <span type="button" class="btn btn-warning typeOfPizz"><b>Вега</b></span>
     </div>
 
-    <div class="row" id="pizza_list">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pizza">
+    <div id="pizza_list">
+        <div class="col-md-6 col-lg-4">
             <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_1.jpg">
+                <img class="pizza-icon" src="assets/images/pizza_1.jpg" alt="pizza">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+                <div class="caption">
+                    <h3><b>Thumbnail label</b></h3>
+                    <div class="type">м'ясна піца</div>
+                    <div class="description">Мясо, риба, майонез, сир, ананаси, цибуля</div>
+                    <div class="row">
+                        <div class="col-sm-6 pizza-small">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">30</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">370</span>
+                            </div>
+                            <h2>
+                                <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                        </div>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <div class="col-sm-6 pizza-big">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">40</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">660</span>
+                            </div>
+                            <h2>
+                                <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                        </div>
 
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 2</a>
-                        <a href="#" class="btn btn-default">Button 1</a>
-                    </p>
+                        </div>
+                    </div>
+                </div>
+                <span class="label label-danger new">Нова</span>
+            </div>
+
+
+        <div class="col-md-6 col-lg-4">
+            <div class="thumbnail pizza-card">
+                <img class="pizza-icon" src="assets/images/pizza_1.jpg" alt="pizza">
+
+                <div class="caption">
+                    <h3><b>Thumbnail label</b></h3>
+                    <div class="type">м'ясна піца</div>
+                    <div class="description">Мясо, риба, майонез, сир, ананаси, цибуля</div>
+                    <div class="row">
+                        <div class="col-sm-6 pizza-small">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">30</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">370</span>
+                            </div>
+                            <h2>
+                                <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                        </div>
+
+                        <div class="col-sm-6 pizza-big">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">40</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">660</span>
+                            </div>
+                            <h2>
+                                <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <span class="label label-danger new">Нова</span>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-md-6 col-lg-4">
             <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_2.jpg">
+                <img class="pizza-icon" src="assets/images/pizza_1.jpg" alt="pizza">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+                <div class="caption">
+                    <h3><b>Thumbnail label</b></h3>
+                    <div class="type">м'ясна піца</div>
+                    <div class="description">Мясо, риба, майонез, сир, ананаси, цибуля</div>
+                    <div class="row">
+                        <div class="col-sm-6 pizza-small">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">30</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">370</span>
+                            </div>
+                            <h2>
+                                <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                        </div>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <div class="col-sm-6 pizza-big">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">40</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">660</span>
+                            </div>
+                            <h2>
+                                <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                        </div>
 
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 3</a>
-                        <a href="#" class="btn btn-default">Button 4</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pizza">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_3.jpg">
-
-                <div class="caption"><h3>Thumbnail label</h3>
-
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 5</a>
-                        <a href="#" class="btn btn-default">Button 6</a>
-                    </p>
+                    </div>
                 </div>
             </div>
             <span class="label label-success new">Популярна</span>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-md-6 col-lg-4">
             <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_4.jpg">
+                <img class="pizza-icon" src="assets/images/pizza_1.jpg" alt="pizza">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+                <div class="caption">
+                    <h3><b>Thumbnail label</b></h3>
+                    <div class="type">м'ясна піца</div>
+                    <div class="description">Мясо, риба, майонез, сир, ананаси, цибуля</div>
+                    <div class="row">
+                        <div class="col-sm-6 pizza-small">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">30</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">370</span>
+                            </div>
+                            <h2>
+                                <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                        </div>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <div class="col-sm-6 pizza-big">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">40</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">660</span>
+                            </div>
+                            <h2>
+                                <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                        </div>
 
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 5</a>
-                        <a href="#" class="btn btn-default">Button 6</a>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-md-6 col-lg-4">
             <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_5.jpg">
+                <img class="pizza-icon" src="assets/images/pizza_1.jpg" alt="pizza">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+                <div class="caption">
+                    <h3><b>Thumbnail label</b></h3>
+                    <div class="type">м'ясна піца</div>
+                    <div class="description">Мясо, риба, майонез, сир, ананаси, цибуля</div>
+                    <div class="row">
+                        <div class="col-sm-6 pizza-small">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">30</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">370</span>
+                            </div>
+                            <h2>
+                                <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                        </div>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <div class="col-sm-6 pizza-big">
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                                <span class="diagonal">40</span>
+                            </div>
+                            <div>
+                                <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                                <span class="weight">660</span>
+                            </div>
+                            <h2>
+                                <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                            </h2>
+                            <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                        </div>
 
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 5</a>
-                        <a href="#" class="btn btn-default">Button 6</a>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 <!--<div id="invis"></div>-->
@@ -121,6 +265,9 @@
         <span class="telephonNumber">(044) 222 5 222</span>
         <span class="timeOfWork">24 години/7 днів на тиждень</span>
         <span class="freeDelivery">Безкоштовна доставка піци</span>
+        <div type="button" class="main-header-top-item btn btn-warning sign-in-button">
+            Ввійти
+        </div>
     </div>
     <div class="secondRow">
         <span class="pizzaLabel"><b>Піца</b></span>
@@ -134,19 +281,52 @@
         <span class="label label-warning amountOfBoughtPizz">3</span>
         <span class="labelOrderDelete">Очистити замовлення</span>
     </div>
-    <div class="container buyList">
 
+    <div class="container buyList">
+        <div class="order-one ng-scope">
+            <img class="img-aside pizza-icon" alt="Піца" src="assets/images/pizza_2.jpg">
+            <p class="bold mb10 ng-scope">
+                <span class="order-title">BBQ (Мала)</span>
+            </p>
+            <div class="order-text">
+                <img class="diagonal-image" src="assets/images/size-icon.svg">
+                <span class="diagonal">30</span>
+                <img class="gram-image" src="assets/images/weight.svg">
+                <span class="gram">460</span>
+            </div>
+            <div class="price-box">
+                <span class="price">139грн</span>
+                <a class="minus btn btn-xs btn-danger btn-circle" href="#">
+                    <i class="glyphicon glyphicon-minus icon-white">
+                    </i>
+                </a>
+                <span class="label order-pizza-count" style="color:black;">1</span>
+                <a class="plus btn btn-xs btn-success btn-circle" href="#">
+                    <i class="glyphicon glyphicon-plus icon-white">
+
+                    </i>
+                </a>
+                <a class="count-clear btn btn-xs btn-default btn-circle" href="#">
+                    <i class="glyphicon glyphicon-remove icon-white">
+
+                    </i>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="endOrderLabel">
         <span class="sumLabel"><b>Сума замовлення</b></span>
         <span class="amountLabel"><b>924 грн</b></span>
-        <button type="button" class="btn btn-warning orderButton">Замовити</button>
+        <div class="buttonOrderDiv">
+            <button type="button" class="btn btn-warning btn-lg btn-block orderButton">Замовити</button>
+        </div>
     </div>
 </div>
 
 <div class="image1">
     <img src="assets/images/discount.svg" class="topPizzaKMA">
-    <span class="KMAlabel"><b>Pizza KMA</b></span>
+    <div class="KMAlabel">Pizza</div>
+    <div class="KMAlabel-2">KMA</div>
 </div>
 
 <div class="image2">

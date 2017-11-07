@@ -1,0 +1,128 @@
+
+#cart{
+  position:fixed;
+  width: 100%;
+  height:@heightTopPanel;
+  padding-left:@widthIcon*1.3;
+  padding-right: @WidthRightPanel+20px;
+  background: lighten(@ColorTopPanel,0%);
+  top:0;
+  opacity:0.8;
+
+
+  .firstRow, .secondRow{
+    color: #d2d2d2;
+
+    padding-top:5px;
+    padding-bottom:5px;
+
+  }
+  .firstRow{
+    border-bottom: 1px solid grey;
+    color:#a1a1a1;
+    height:@heightTopPanel/2;
+  }
+  .secondRow{
+    color:white;
+  }
+
+  .telephonNumber{
+    margin-right: 30px;
+    font-size: 20px;
+  }
+
+  .timeOfWork{
+    margin-right: 30px;
+    font-size: 12px;
+  }
+
+  .freeDelivery{
+    margin-right: 30px;
+    font-size:0.35cm;
+  }
+
+   .sign-in-button{
+     float:right;
+     margin-top:-2px;
+     border-color: darken(@mainColor,5%);
+     background-color: lighten(@mainColor,1%);
+  }
+
+  .sign-in-button:hover{
+    background-color: darken(@mainColor,2%);
+  }
+
+}
+
+@media (max-width: 	1200px) {
+
+  .freeDelivery{
+    display: none;
+  }
+
+  #cart{
+    padding-left:@widthIcon*1.2;
+  }
+
+
+@media (max-width: 992px) {
+
+
+  .timeOfWork{
+    display: none;
+  }
+
+  #cart{
+    .telephonNumber{
+      font-size: 18px;
+    }
+
+  }
+
+}
+
+@media (max-width: 768px) {
+  .telephonNumber{
+    font-size: 0.3cm;
+    margin-right: 0;
+  }
+
+  .timeOfWork{
+    display: none;
+  }
+
+  .freeDelivery{
+    display: none;
+  }
+  #cart{
+    padding-left:@widthIcon*1.14;
+    line-height: 0.9;
+
+    .telephonNumber{
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .telephonNumber{
+    font-size: 0.27cm;
+    margin-right: 0;
+  }
+
+  .timeOfWork{
+    display: none;
+  }
+
+  #cart{
+    padding-left:@widthIcon*1.14;
+  }
+
+  /*   .pizzaLabel{
+     display: none;
+   }*/
+
+}
+
+
+}
