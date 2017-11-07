@@ -95,8 +95,95 @@
   top:@heightTopBot;
   bottom:0px;
   margin-bottom: @heightBottom;
-
+  padding:0;
   overflow-y:scroll;
   overflow-x:hidden;
+
+  .myOrder{
+    position:relative;
+    height: 120px;
+    padding: 20px 61px 10px 24px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    p{
+      margin:0px;
+    }
+
+    .pizzaIconInOrder{
+      position: absolute;
+      right: -49px;
+      top: 15px;
+      border-radius: 50% 0 0 50%;
+      max-height: 98px;
+      max-width: 98px;
+    }
+
+    .order-title{
+      color:darken(@mainColor,3%);
+      font-size:20px;
+    }
+
+    .orderCharacteristics{
+      margin:6px 0 8px;
+
+      .orderWeightIcon{
+        margin-left:10px;
+      }
+    }
+
+    .price{
+      margin-right:10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .order-pizza-count{
+      font-size: 14px;
+      font-weight: 700;
+      }
+
+    .btn-circle{
+      width: 30px;
+      height: 30px;
+      padding: 6px 0;
+      font-size: 12px;
+      line-height: 1.428571429;
+      border-radius: 15px;
+      text-align:center;
+    }
+
+    .plus{
+      background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+      border-color: #398439;
+    }
+    .plus:hover{
+      background-image: linear-gradient(to bottom, #5bb65b 0, #397a39 100%);
+    }
+    .minus{
+      background-image: linear-gradient(to bottom,#d9534f 0,#c12e2a 100%);
+      border-color: #b92c28;
+    }
+    .minus:hover{
+      background-image: linear-gradient(to bottom, #cd504c 0, #b22d29 100%);
+    }
+    .btn-circle:last-child{
+      margin-left:20px;
+      color:darken(@mainColor,3%);
+      text-shadow: 0 1px 0 #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+      background-repeat: repeat-x;
+      background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    }
+    .btn-circle:hover:last-child{
+      background-image: linear-gradient(to bottom, #d7d7d7 0, #d7d7d7 100%);
+    }
+
+
+
+  }
+
 
 }
