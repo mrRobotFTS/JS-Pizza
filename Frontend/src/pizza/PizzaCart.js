@@ -8,22 +8,42 @@ var PizzaSize = {
     Big: "big_size",
     Small: "small_size"
 };
+var sizeNames = {
+    big_size: "Велика",
+    small_size: "Мала"
+}
+
+var allPrice = 0;
+var amountOfOrders = 0;
 
 //Змінна в якій зберігаються перелік піц в кошику
 var Cart = [];
 //HTML едемент куди будуть додаватися піци
 var $cart = $(".buyList");
-
+var flag=true;
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
-    //Приклад реалізації, можна робити будь-яким іншим способом
-    Cart.push({
-        pizza: pizza,
-        size: size,
-        quantity: 1
+    Cart.forEach(function(cart_item){
+        if(cart_item.pizza==pizza&&cart_item.size==size) {
+            cart_item.quantity += 1;
+            allPrice += pizza[size].price;
+            amountOfOrders += 1;
+            flag=false;
+            return;
+        }
     });
-
+    if(flag){
+        allPrice += pizza[size].price;
+        amountOfOrders += 1;
+        Cart.push({
+            pizza: pizza,
+            size: size,
+            nameSize: sizeNames[size],
+            quantity: 1
+        });
+    }
+    flag=true;
     //Оновити вміст кошика на сторінці
     updateCart();
 }
@@ -31,17 +51,29 @@ function addToCart(pizza, size) {
 function removeFromCart(cart_item) {
     //Видалити піцу з кошика
 
-   if(Cart.indexOf(cart_item)!=-1) delete Cart[Cart.indexOf(cart_item)];
+   if(Cart.indexOf(cart_item)!=-1) {
+       allPrice -= (cart_item.pizza[cart_item.size].price)*cart_item.quantity;
+       amountOfOrders -= cart_item.quantity;
+       delete Cart[Cart.indexOf(cart_item)];
+   }
 
     //Після видалення оновити відображення
     updateCart();
 }
 
+var $amountOfPizz = $(".amountOfBoughtPizz");
+var $allPrice = $(".amountLabel");
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
     //TODO: ...
-
+    $amountOfPizz.html("");
+    $amountOfPizz.append(amountOfOrders);
+    $allPrice.html("");
+    $allPrice.append(allPrice);
+    $(".labelOrderDelete").click(function(){
+        Cart.forEach(removeFromCart);
+    });
     updateCart();
 }
 
@@ -56,6 +88,10 @@ function updateCart() {
 
     //Очищаємо старі піци в кошику
     $cart.html("");
+    $amountOfPizz.html("");
+    $amountOfPizz.append(amountOfOrders);
+    $allPrice.html("");
+    $allPrice.append(allPrice+" грн");
 
     //Онволення однієї піци
     function showOnePizzaInCart(cart_item) {
@@ -66,15 +102,20 @@ function updateCart() {
         $node.find(".plus").click(function(){
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
-
+            allPrice += cart_item.pizza[cart_item.size].price;
+            amountOfOrders += 1;
             //Оновлюємо відображення
             updateCart();
         });
 
         $node.find(".minus").click(function(){
             //Збільшуємо кількість замовлених піц
-            cart_item.quantity -= 1;
-
+            if(cart_item.quantity>1){
+                cart_item.quantity -= 1;
+                allPrice -= cart_item.pizza[cart_item.size].price;
+                amountOfOrders -= 1;
+            }
+            else removeFromCart(cart_item);
             //Оновлюємо відображення
             updateCart();
         });

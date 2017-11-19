@@ -1,7 +1,7 @@
 <div class="myOrder">
     <img class="pizzaIconInOrder" alt="Піца" src="<%=pizza.icon%>">
     <p>
-        <span class="order-title"><%= pizza.title %></span>
+        <span class="order-title"><%= pizza.title%> <%if(pizza.hasOwnProperty("big_size")){%>(<%=nameSize%>)<%} %></span>
     </p>
     <div class="orderCharacteristics">
         <img class="orderSizeIcon" src="assets/images/size-icon.svg">
@@ -11,15 +11,15 @@
     </div>
     <div class="price-box">
         <span class="price"><%= pizza[size].price %>грн</span>
-        <a class="minus btn btn-xs btn-danger btn-circle" href="#">
+        <div class="minus btn btn-xs btn-danger btn-circle" >
             <i class="glyphicon glyphicon-minus"></i>
-        </a>
+        </div>
         <span class="label order-pizza-count" style="color:black;"><%= quantity %></span>
-        <a class="plus btn btn-xs btn-success btn-circle" href="#">
+        <div class="plus btn btn-xs btn-success btn-circle" >
             <i class="glyphicon glyphicon-plus "></i>
-        </a>
-        <a class="removeButton count-clear btn btn-xs btn-default btn-circle" href="#">
+        </div>
+        <div class="removeButton count-clear btn btn-xs btn-default btn-circle" >
             <i class="glyphicon glyphicon-remove"></i>
-        </a>
+        </div>
     </div>
 </div>

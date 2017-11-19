@@ -25,7 +25,7 @@ function getIngredientsArray(pizza) {
 
         <div class="caption">
             <h3><b><%= pizza.title %></b></h3>
-            <div class="type">><%= pizza.type %></div>
+            <div class="type"><%= pizza.type %></div>
             <div class="description"><%= getIngredientsArray(pizza).join(", ") %></div>
             <div class="row">
                 <div class="col-sm-<%if(pizza.hasOwnProperty("big_size")){%>6<% }else {%>12<%}%> pizza-small">
@@ -40,7 +40,7 @@ function getIngredientsArray(pizza) {
                     <h2>
                         <div class="price">99<div style="font-size:14px;"> грн.</div></div>
                     </h2>
-                    <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                    <div class="btn btn-warning  buy-button-small" role="button">Купити</div>
                 </div>
                 <%if(pizza.hasOwnProperty("big_size")){%>
                 <div class="col-sm-6 pizza-big">
@@ -55,7 +55,7 @@ function getIngredientsArray(pizza) {
                     <h2>
                         <div class="price">169<div style="font-size:14px;"> грн.</div></div>
                     </h2>
-                    <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                    <div class="btn btn-warning  buy-button-big" role="button">Купити</div>
                 </div>
                 <%}%>
             </div>
