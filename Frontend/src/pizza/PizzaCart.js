@@ -11,9 +11,8 @@ var PizzaSize = {
 
 //Змінна в якій зберігаються перелік піц в кошику
 var Cart = [];
-
 //HTML едемент куди будуть додаватися піци
-var $cart = $("#cart");
+var $cart = $(".buyList");
 
 function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
@@ -31,7 +30,8 @@ function addToCart(pizza, size) {
 
 function removeFromCart(cart_item) {
     //Видалити піцу з кошика
-    //TODO: треба зробити
+
+   if(Cart.indexOf(cart_item)!=-1) delete Cart[Cart.indexOf(cart_item)];
 
     //Після видалення оновити відображення
     updateCart();
@@ -52,7 +52,7 @@ function getPizzaInCart() {
 
 function updateCart() {
     //Функція викликається при зміні вмісту кошика
-    //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміт кошика в Local Storage
+    //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміст кошика в Local Storage
 
     //Очищаємо старі піци в кошику
     $cart.html("");
@@ -71,6 +71,17 @@ function updateCart() {
             updateCart();
         });
 
+        $node.find(".minus").click(function(){
+            //Збільшуємо кількість замовлених піц
+            cart_item.quantity -= 1;
+
+            //Оновлюємо відображення
+            updateCart();
+        });
+
+        $node.find(".removeButton").click(function(){
+            removeFromCart(cart_item);
+        });
         $cart.append($node);
     }
 

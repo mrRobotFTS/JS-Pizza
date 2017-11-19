@@ -17,25 +17,53 @@ function getIngredientsArray(pizza) {
 }
 
    %>
-<div class="col-md-6 col-lg-4 pizza-card">
-    <div class="thumbnail">
-        <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
 
-        <% if(pizza.is_new) { %>
-        <span class="label label-danger">Нова</span>
-        <% } else if(pizza.is_popular) {%>
-        <span class="label label-success">Популярна</span>
-        <% } %>
+
+<div class="col-md-6 col-lg-4">
+    <div class="thumbnail pizza-card">
+        <img class="pizza-icon" src="<%= pizza.icon %>" alt="pizza">
 
         <div class="caption">
-            <span class="title"><%= pizza.title %></span>
-            <div class="type"><%= pizza.type %></div>
-            <div class="description">
-                <%= getIngredientsArray(pizza).join(", ") %>
+            <h3><b><%= pizza.title %></b></h3>
+            <div class="type">><%= pizza.type %></div>
+            <div class="description"><%= getIngredientsArray(pizza).join(", ") %></div>
+            <div class="row">
+                <div class="col-sm-<%if(pizza.hasOwnProperty("big_size")){%>6<% }else {%>12<%}%> pizza-small">
+                    <div>
+                        <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                        <span class="diagonal">30</span>
+                    </div>
+                    <div>
+                        <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                        <span class="weight">370</span>
+                    </div>
+                    <h2>
+                        <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                    </h2>
+                    <a href="#" class="btn btn-warning  buy-button-small" role="button">Купити</a>
+                </div>
+                <%if(pizza.hasOwnProperty("big_size")){%>
+                <div class="col-sm-6 pizza-big">
+                    <div>
+                        <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
+                        <span class="diagonal">40</span>
+                    </div>
+                    <div>
+                        <img class="ui right spaced avatar image" src="assets/images/weight.svg">
+                        <span class="weight">660</span>
+                    </div>
+                    <h2>
+                        <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                    </h2>
+                    <a href="#" class="btn btn-warning  buy-button-big" role="button">Купити</a>
+                </div>
+                <%}%>
             </div>
         </div>
-
-        <!-- Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір -->
-        <button class="btn btn-primary buy-big">Купити велику</button>
     </div>
+    <% if(pizza.is_new) { %>
+    <span class="label label-danger new">Нова</span>
+    <% } else if(pizza.is_popular) {%>
+    <span class="label label-success new">Популярна</span>
+    <% } %>
 </div>
