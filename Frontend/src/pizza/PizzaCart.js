@@ -3,6 +3,9 @@
  */
 var Templates = require('../Templates');
 
+var basil = require('basil.js');
+basil = new basil();
+
 //Перелік розмірів піци
 var PizzaSize = {
     Big: "big_size",
@@ -66,7 +69,19 @@ var $allPrice = $(".amountLabel");
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-    //TODO: ...
+    console.log(Cart);
+    var savedOrders = basil.get('amountOfOrders');
+    if(savedOrders>0){
+        Cart = basil.get('orders');
+        Cart = Cart.filter(function(x) {
+            return x !== undefined && x !== null;
+        });
+        allPrice = basil.get('price');
+        amountOfOrders = basil.get('amountOfOrders');
+        console.log(Cart);
+    }
+
+
     $amountOfPizz.html("");
     $amountOfPizz.append(amountOfOrders);
     $allPrice.html("");
@@ -127,7 +142,9 @@ function updateCart() {
     }
 
     Cart.forEach(showOnePizzaInCart);
-
+    basil.set("orders",Cart);
+    basil.set("price",allPrice);
+    basil.set("amountOfOrders",amountOfOrders);
 }
 
 exports.removeFromCart = removeFromCart;
