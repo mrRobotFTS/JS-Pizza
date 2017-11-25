@@ -31,14 +31,14 @@ function getIngredientsArray(pizza) {
                 <div class="col-sm-<%if(pizza.hasOwnProperty("big_size")){%>6<% }else {%>12<%}%> pizza-small">
                     <div>
                         <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
-                        <span class="diagonal">30</span>
+                        <span class="diagonal"><%= pizza.small_size.size%></span>
                     </div>
                     <div>
                         <img class="ui right spaced avatar image" src="assets/images/weight.svg">
-                        <span class="weight">370</span>
+                        <span class="weight"><%= pizza.small_size.weight%></span>
                     </div>
                     <h2>
-                        <div class="price">99<div style="font-size:14px;"> грн.</div></div>
+                        <div class="price"><%= pizza.small_size.price%><div style="font-size:14px;"> грн.</div></div>
                     </h2>
                     <div class="btn btn-warning  buy-button-small" role="button">Купити</div>
                 </div>
@@ -46,14 +46,14 @@ function getIngredientsArray(pizza) {
                 <div class="col-sm-6 pizza-big">
                     <div>
                         <img class="ui right spaced avatar image" src="assets/images/size-icon.svg">
-                        <span class="diagonal">40</span>
+                        <span class="diagonal"><%= pizza.big_size.size%></span>
                     </div>
                     <div>
                         <img class="ui right spaced avatar image" src="assets/images/weight.svg">
-                        <span class="weight">660</span>
+                        <span class="weight"><%= pizza.big_size.weight%></span>
                     </div>
                     <h2>
-                        <div class="price">169<div style="font-size:14px;"> грн.</div></div>
+                        <div class="price"><%= pizza.big_size.price%><div style="font-size:14px;"> грн.</div></div>
                     </h2>
                     <div class="btn btn-warning  buy-button-big" role="button">Купити</div>
                 </div>

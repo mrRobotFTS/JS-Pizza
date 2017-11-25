@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Pizza</title>
+    <title><%= pageTitle %> - Pizza</title>
 
     <!-- Bootsrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -13,16 +13,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <!--style for text-->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
 </head>
 <body>
 
-
+<% include common/header.ejs %>
 
 <div class="container-fluid myCont">
 
     <div class="allPizz">
-          <span class="labelAllPizz"><b>Усі піци</b></span>
-          <span class="label label-warning amountOfAllPizz">6</span>
+        <span class="labelAllPizz"><b>Усі піци</b></span>
+        <span class="label label-warning amountOfAllPizz">6</span>
     </div>
     <ul class="typeOfPizzs">
         <li type="button" class="btn btn-warning typeOfPizz activeMenu" id="all"><b>Усі</b></li>
@@ -37,21 +38,6 @@
 
     </div>
 </div>
-<!--<div id="invis"></div>-->
-<div id="cart">
-    <div class="firstRow">
-        <span class="telephonNumber">(044) 222 5 222</span>
-        <span class="timeOfWork">24 години/7 днів на тиждень</span>
-        <span class="freeDelivery">Безкоштовна доставка піци</span>
-        <div type="button" class="main-header-top-item btn btn-warning sign-in-button">
-            Ввійти
-        </div>
-    </div>
-    <div class="secondRow">
-        <span class="pizzaLabel"><b>Піца</b></span>
-    </div>
-</div>
-
 
 <div class="secondColumn">
     <div class="orderLabel">
@@ -68,29 +54,12 @@
         <span class="sumLabel"><b>Сума замовлення</b></span>
         <span class="amountLabel"><b>0 грн</b></span>
         <div class="buttonOrderDiv">
-            <a type="button" class="btn btn-warning btn-lg btn-block orderButton" href="http://localhost:5050/order.html">Замовити</a>
+            <button type="button" class="btn btn-warning btn-lg btn-block orderButton">Замовити</button>
         </div>
     </div>
 </div>
 
-<div class="image1">
-    <img src="assets/images/discount.svg" class="topPizzaKMA">
-    <div class="KMAlabel">Pizza</div>
-    <div class="KMAlabel-2">KMA</div>
-</div>
-
-<div class="image2">
-    <img src="assets/images/discount.svg" class="bottomPizzaKMA">
-    <span class="saleLabel"><b>Цього тижня на все</b></span>
-    <span class="percentSaleLabel"><b><i>-20%</i></b></span>
-</div>
-<footer class="footer">
-    <p>Pizza - практичний проект в межах курсу JavaScript в Києво-Могилянській Академії</p>
-    <p>
-        Доставка піци не здійснюється
-    </p>
-</footer>
-
+<% include common/footer.ejs %>
 
 <!-- jQuery JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>

@@ -28,7 +28,7 @@ function addToCart(pizza, size) {
     //Додавання однієї піци в кошик покупок
 
     Cart.forEach(function(cart_item){
-        if(cart_item.pizza==pizza&&cart_item.size==size) {
+        if(cart_item.pizza.title==pizza.title&&cart_item.size==size) {
             cart_item.quantity += 1;
             allPrice += pizza[size].price;
             amountOfOrders += 1;
@@ -81,6 +81,12 @@ function initialiseCart() {
         console.log(Cart);
     }
 
+    $(".orderButton").click(function () {
+        if(Cart.length!=0){
+            document.location.href = "http://localhost:5050/order.html";
+        }
+        console.log("button up");
+    });
 
     $amountOfPizz.html("");
     $amountOfPizz.append(amountOfOrders);

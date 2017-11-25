@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><%= pageTitle %> - Pizza</title>
+
+    <!-- Bootsrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- LESS основний файл -->
+    <link rel="stylesheet/less" type="text/css" href="assets/less/mainOrder.less" />
+    <!-- LESS JavaScript компілятор -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <!--style for text-->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+</head>
+<body>
+
+<% include common/header.ejs %>
+
+<div class="container-fluid myCont">
+
+    <div class="contactsDataLabel">
+        <i>Контактні дані</i>
+    </div>
+
+    <div class="firstContainer container-fluid">
+        <div class="contacts  col-md-7">
+            <form class="form-horizontal" role="form">
+                <div class="form-group nameForm">
+                    <label for="inputName" class="col-sm-2 control-label">Ім'я</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName" placeholder="Прізвище, Ім'я">
+                        <label class="control-label uncorrectName displayNone" for="inputName">Введіть тільки власне ім’я, без цифр</label>
+                    </div>
+                </div>
+                <div class="form-group phoneForm">
+                    <label for="inputPhone" class="col-sm-2 control-label">Телефон</label>
+                    <div class="col-sm-10">
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="+380222222222">
+                        <label class="control-label uncorrectPhone displayNone" for="inputPhone">Введіть номер телефону, починаючи з 0 або +</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputaddress" class="col-sm-2 control-label">Адреса</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputAddress" placeholder="Київ, вул.Цвєтаєвої,14Б">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="contInf  col-md-5">
+            <div class="infoAboutOrder ">
+                <h4>Інформація про замовлення</h4>
+                <dl class="dl-horizontal">
+                    <dt class="timeLabel">Приблизний час доставки:</dt>
+                    <dd class="timeOfWaiting">невідомий</dd>
+
+                    <dt>Адреса доставки:</dt>
+                    <dd class="timeOfWaiting">невідома</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="rowWithButton row">
+        <div class="submitButtonContainer">
+            <button class="btn btn-warning submitButton">Далі<i class="glyphicon glyphicon-chevron-right"></i></button>
+        </div>
+    </div>
+
+</div>
+
+<div class="secondColumn">
+    <div class="orderLabel">
+        <span class="labelOrder"><b>Замовлення</b></span>
+        <span class="label label-warning amountOfBoughtPizz">0</span>
+        <span class="labelOrderDelete" role="button">Очистити замовлення</span>
+    </div>
+
+    <div class="container buyList">
+
+    </div>
+
+    <div class="endOrderLabel">
+        <span class="sumLabel"><b>Сума замовлення</b></span>
+        <span class="amountLabel"><b>0 грн</b></span>
+        <div class="buttonOrderDiv">
+            <button type="button" class="btn btn-warning btn-lg btn-block orderButton">Замовити</button>
+        </div>
+    </div>
+</div>
+
+<% include common/footer.ejs %>
+
+<!-- jQuery JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+<!--Bootsrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!--Own JavaScript -->
+<script type="text/javascript" src="../../Frontend/src/orderPage/main.js"> </script>
+</body>
+</html>

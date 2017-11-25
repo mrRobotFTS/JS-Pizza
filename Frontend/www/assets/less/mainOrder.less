@@ -1,0 +1,78 @@
+@import "Const/constants";
+
+.myCont{
+  padding-right:@WidthRightPanel+15px;
+  padding-top: @heightTopPanel+60px;
+  background-color: rgba(254, 255, 217, 0.32);
+}
+
+.contactsDataLabel{
+  font-size: 1.4em;
+  font-weight: 500;
+  width:100%;
+  margin:0 0 10px 30px;
+
+}
+
+.infoAboutOrder{
+  width:inherit;
+  padding: 20px;
+  border: 1px dotted @mainColor;
+  border-left: 5px solid @mainColor;
+}
+
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: inherit;
+    overflow: hidden;
+    clear: left;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  .dl-horizontal dd{
+    width:inherit;
+    margin-left: 0px;
+  }
+}
+
+.firstContainer, .infoAboutOrder, .contacts{
+  box-sizing: border-box;
+}
+
+.infoAboutOrder{
+  width:100%;
+  background-color: white;
+}
+
+
+.submitButton{
+  float:right;
+  padding-left:25px;
+  padding-right: 25px;
+  border-color: darken(@mainColor,5%);
+}
+
+.btn-warning{
+  background-image: linear-gradient(to bottom,#f0ad4e 0,@mainColor 100%);
+}
+.btn-warning:hover{
+  background-image: linear-gradient(to bottom,#f0ad4e 0, darken(@mainColor,6%) 100%);
+}
+
+.rowWithButton{
+  margin:10px 30px 10px 0;
+  box-sizing: border-box;
+}
+.displayNone{
+  display:none;
+}
+
+@import "SecondColumn/secondColumn";
+
+@import "SecondColumn/footer";
+@import "SiteIcon/siteIcon";
+@import "SecondColumn/topPanel";

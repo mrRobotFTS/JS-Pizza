@@ -3,7 +3,7 @@
  */
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
-var Pizza_List = require('../Pizza_List');
+var Pizza_List = require('../../../Backend/data/Pizza_List');
 
 var pizzaCategories = {
     all: 'all',
