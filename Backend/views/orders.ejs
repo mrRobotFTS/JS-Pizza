@@ -42,10 +42,11 @@
                         <label class="control-label uncorrectPhone displayNone" for="inputPhone">Введіть номер телефону, починаючи з 0 або +</label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputaddress" class="col-sm-2 control-label">Адреса</label>
+                <div class="form-group addressForm">
+                    <label for="inputAddress" class="col-sm-2 control-label">Адреса</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputAddress" placeholder="Київ, вул.Цвєтаєвої,14Б">
+                        <label class="control-label uncorrectAddress displayNone" for="inputAddress">Введіть адресу доставки</label>
                     </div>
                 </div>
 
@@ -77,7 +78,6 @@
     <div class="orderLabel">
         <span class="labelOrder"><b>Замовлення</b></span>
         <span class="label label-warning amountOfBoughtPizz">0</span>
-        <span class="labelOrderDelete" role="button">Очистити замовлення</span>
     </div>
 
     <div class="container buyList">
@@ -88,7 +88,7 @@
         <span class="sumLabel"><b>Сума замовлення</b></span>
         <span class="amountLabel"><b>0 грн</b></span>
         <div class="buttonOrderDiv">
-            <button type="button" class="btn btn-warning btn-lg btn-block orderButton">Замовити</button>
+            <button type="button" class="btn btn-default btn-lg btn-block orderButton">Редагувати замовлення</button>
         </div>
     </div>
 </div>
@@ -102,6 +102,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!--Own JavaScript -->
-<script type="text/javascript" src="../../Frontend/src/orderPage/main.js"> </script>
+<script type="text/javascript" src="assets/js/mainOrder.js"> </script>
 </body>
 </html>

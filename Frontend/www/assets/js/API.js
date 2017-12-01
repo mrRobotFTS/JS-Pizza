@@ -38,11 +38,3 @@ exports.getPizzaList = function(callback) {
 exports.createOrder = function(order_info, callback) {
     backendPost("/api/create-order/", order_info, callback);
 };
-
-exports.getPizzaInOrder = function(callback) {
-    backendGet("/api/get-pizza-order/", callback);
-}
-
-exports.createOwnOrder = function(order_info, callback) {
-    backendPost("/api/create-own-order/", order_info, callback);
-};

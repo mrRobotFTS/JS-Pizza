@@ -13,6 +13,14 @@ var pizzaCategories = {
     pineapple: 'pineapple',
     mushroom: 'mushroom'
 }
+var pizzaCategoriesNames = {
+    all: 'Усі піци',
+    vega: 'Вега піци',
+    meat: 'М\'ясні піци',
+    ocean: 'З морепродуктами',
+    pineapple: 'З ананасами',
+    mushroom: 'З грибами'
+}
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
@@ -43,18 +51,34 @@ function showPizzaList(list) {
 function filterPizza(filter) {
     //Масив куди потраплять піци які треба показати
     var pizza_shown = [];
-    if(filter==pizzaCategories.all) pizza_shown = Pizza_List;
+    $('.labelAllPizz').text(pizzaCategoriesNames[filter]);
+
+    var amount = 0;
+
+    if(filter==pizzaCategories.all) {
+        pizza_shown = Pizza_List;
+        Pizza_List.forEach(function(pizza){
+            amount++;
+        });
+    }
     else{
         if(filter==pizzaCategories.meat||filter==pizzaCategories.pineapple||filter==pizzaCategories.ocean||filter==pizzaCategories.mushroom)
             Pizza_List.forEach(function(pizza){
                 // console.log(pizza.content.hasOwnProperty(filter),1222);
-                if(pizza.content.hasOwnProperty(filter))pizza_shown.push(pizza);
+                if(pizza.content.hasOwnProperty(filter)){
+                    pizza_shown.push(pizza);
+                    amount++;
+                }
             });
         else Pizza_List.forEach(function(pizza){
-            if(pizza.type==pizzaCategories.vega)pizza_shown.push(pizza);
+            if(pizza.type==pizzaCategories.vega){
+                amount++;
+                pizza_shown.push(pizza);
+            }
         });
     }
 
+    $('.amountOfAllPizz').text(amount);
 
     //Показати відфільтровані піци
     showPizzaList(pizza_shown);
@@ -75,7 +99,7 @@ function initialiseMenu() {
         // console.log(list[i]);
         // console.log("value = ",value,i);
     });
-    showPizzaList(Pizza_List)
+    filterPizza(pizzaCategories.all);
 }
 
 exports.filterPizza = filterPizza;

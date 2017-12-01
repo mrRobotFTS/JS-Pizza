@@ -59,7 +59,9 @@ function removeFromCart(cart_item) {
        amountOfOrders -= cart_item.quantity;
        delete Cart[Cart.indexOf(cart_item)];
    }
-
+    Cart = Cart.filter(function(x) {
+        return x !== undefined && x !== null;
+    });
     //Після видалення оновити відображення
     updateCart();
 }
@@ -83,7 +85,14 @@ function initialiseCart() {
 
     $(".orderButton").click(function () {
         if(Cart.length!=0){
-            document.location.href = "http://localhost:5050/order.html";
+            require("../API").createOrder(Cart,function () {
+                console.log(Cart.length);
+                document.location.href = "http://localhost:5050/order.html";
+                console.log( require("../API").getPizzaList(function(err,data){
+                    return data;
+                }));
+            });
+
         }
         console.log("button up");
     });

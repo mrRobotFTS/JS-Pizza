@@ -1,183 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
- * Created by diana on 12.01.16.
- */
-
-var pizza_info = [
-    {
-        id:1,
-        icon:'assets/images/pizza_7.jpg',
-        title: "Імпреза",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['балик', 'салямі'],
-            chicken: ['куриця'],
-            cheese: ['сир моцарелла', 'сир рокфорд'],
-            pineapple: ['ананаси'],
-            additional: ['томатна паста', 'петрушка']
-        },
-        small_size:{
-            weight: 370,
-            size: 30,
-            price: 99
-        },
-        big_size:{
-            weight: 660,
-            size: 40,
-            price: 169
-        },
-        is_new:true,
-        is_popular:true
-
-    },
-    {
-        id:2,
-        icon:'assets/images/pizza_2.jpg',
-        title: "BBQ",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['мисливські ковбаски', 'ковбаски папероні', 'шинка'],
-            cheese: ['сир домашній'],
-            mushroom: ['шампінйони'],
-            additional: ['петрушка', 'оливки']
-        },
-        small_size:{
-            weight: 460,
-            size: 30,
-            price: 139
-        },
-        big_size:{
-            weight: 840,
-            size: 40,
-            price: 199
-        },
-        is_popular:true
-    },
-    {
-        id:3,
-        icon:'assets/images/pizza_1.jpg',
-        title: "Міксовий поло",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['вітчина', 'куриця копчена'],
-            cheese: ['сир моцарелла'],
-            pineapple: ['ананаси'],
-            additional: ['кукурудза', 'петрушка', 'соус томатний']
-        },
-        small_size:{
-            weight: 430,
-            size: 30,
-            price: 115
-        },
-        big_size:{
-            weight: 780,
-            size: 40,
-            price: 179
-        }
-    },
-    {
-        id:4,
-        icon:'assets/images/pizza_5.jpg',
-        title: "Сициліано",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['вітчина', 'салямі'],
-            cheese: ['сир моцарелла'],
-            mushroom: ['шампінйони'],
-            additional: ['перець болгарський',  'соус томатний']
-        },
-        small_size:{
-            weight: 450,
-            size: 30,
-            price: 111
-        },
-        big_size:{
-            weight: 790,
-            size: 40,
-            price: 169
-        }
-    },
-    {
-        id:17,
-        icon:'assets/images/pizza_3.jpg',
-        title: "Маргарита",
-        type: 'Вега піца',
-        content: {
-            cheese: ['сир моцарелла', 'сир домашній'],
-            tomato: ['помідори'],
-            additional: ['базилік', 'оливкова олія', 'соус томатний']
-        },
-        small_size:{
-            weight: 370,
-            size: 30,
-            price: 89
-        }
-    },
-    {
-        id:43,
-        icon:'assets/images/pizza_6.jpg',
-        title: "Мікс смаків",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['ковбаски'],
-            cheese: ['сир моцарелла'],
-            mushroom: ['шампінйони'],
-            pineapple: ['ананаси'],
-            additional: ['цибуля кримська', 'огірки квашені', 'соус гірчичний']
-        },
-        small_size:{
-            weight: 470,
-            size: 30,
-            price: 115
-        },
-        big_size:{
-            weight: 780,
-            size: 40,
-            price: 180
-        }
-    },
-    {
-        id:90,
-        icon:'assets/images/pizza_8.jpg',
-        title: "Дольче Маре",
-        type: 'Морська піца',
-        content: {
-            ocean: ['криветки тигрові', 'мідії', 'ікра червона', 'філе червоної риби'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
-        },
-        small_size:{
-            weight: 845,
-            size: 40,
-            price: 399
-        }
-    },
-    {
-        id:6,
-        icon:'assets/images/pizza_4.jpg',
-        title: "Россо Густо",
-        type: 'Морська піца',
-        content: {
-            ocean: ['ікра червона', 'лосось копчений'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
-        },
-        small_size:{
-            weight: 400,
-            size: 30,
-            price: 189
-        },
-        big_size:{
-            weight: 700,
-            size: 40,
-            price: 299
-        }
-    }
-];
-
-module.exports = pizza_info;
-},{}],2:[function(require,module,exports){
-/**
  * Created by chaika on 09.02.16.
  */
 var API_URL = "http://localhost:5050";
@@ -225,185 +47,7 @@ exports.getPizzaInOrder = function(callback) {
 exports.createOwnOrder = function(order_info, callback) {
     backendPost("/api/create-own-order/", order_info, callback);
 };
-},{}],3:[function(require,module,exports){
-/**
- * Created by diana on 12.01.16.
- */
-
-var pizza_info = [
-    {
-        id:1,
-        icon:'assets/images/pizza_7.jpg',
-        title: "Імпреза",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['балик', 'салямі'],
-            chicken: ['куриця'],
-            cheese: ['сир моцарелла', 'сир рокфорд'],
-            pineapple: ['ананаси'],
-            additional: ['томатна паста', 'петрушка']
-        },
-        small_size:{
-            weight: 370,
-            size: 30,
-            price: 99
-        },
-        big_size:{
-            weight: 660,
-            size: 40,
-            price: 169
-        },
-        is_new:true,
-        is_popular:true
-
-    },
-    {
-        id:2,
-        icon:'assets/images/pizza_2.jpg',
-        title: "BBQ",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['мисливські ковбаски', 'ковбаски папероні', 'шинка'],
-            cheese: ['сир домашній'],
-            mushroom: ['шампінйони'],
-            additional: ['петрушка', 'оливки']
-        },
-        small_size:{
-            weight: 460,
-            size: 30,
-            price: 139
-        },
-        big_size:{
-            weight: 840,
-            size: 40,
-            price: 199
-        },
-        is_popular:true
-    },
-    {
-        id:3,
-        icon:'assets/images/pizza_1.jpg',
-        title: "Міксовий поло",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['вітчина', 'куриця копчена'],
-            cheese: ['сир моцарелла'],
-            pineapple: ['ананаси'],
-            additional: ['кукурудза', 'петрушка', 'соус томатний']
-        },
-        small_size:{
-            weight: 430,
-            size: 30,
-            price: 115
-        },
-        big_size:{
-            weight: 780,
-            size: 40,
-            price: 179
-        }
-    },
-    {
-        id:4,
-        icon:'assets/images/pizza_5.jpg',
-        title: "Сициліано",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['вітчина', 'салямі'],
-            cheese: ['сир моцарелла'],
-            mushroom: ['шампінйони'],
-            additional: ['перець болгарський',  'соус томатний']
-        },
-        small_size:{
-            weight: 450,
-            size: 30,
-            price: 111
-        },
-        big_size:{
-            weight: 790,
-            size: 40,
-            price: 169
-        }
-    },
-    {
-        id:17,
-        icon:'assets/images/pizza_3.jpg',
-        title: "Маргарита",
-        type: 'Вега піца',
-        content: {
-            cheese: ['сир моцарелла', 'сир домашній'],
-            tomato: ['помідори'],
-            additional: ['базилік', 'оливкова олія', 'соус томатний']
-        },
-        small_size:{
-            weight: 370,
-            size: 30,
-            price: 89
-        }
-    },
-    {
-        id:43,
-        icon:'assets/images/pizza_6.jpg',
-        title: "Мікс смаків",
-        type: 'М’ясна піца',
-        content: {
-            meat: ['ковбаски'],
-            cheese: ['сир моцарелла'],
-            mushroom: ['шампінйони'],
-            pineapple: ['ананаси'],
-            additional: ['цибуля кримська', 'огірки квашені', 'соус гірчичний']
-        },
-        small_size:{
-            weight: 470,
-            size: 30,
-            price: 115
-        },
-        big_size:{
-            weight: 780,
-            size: 40,
-            price: 180
-        }
-    },
-    {
-        id:90,
-        icon:'assets/images/pizza_8.jpg',
-        title: "Дольче Маре",
-        type: 'Морська піца',
-        content: {
-            ocean: ['криветки тигрові', 'мідії', 'ікра червона', 'філе червоної риби'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
-        },
-        big_size:{
-            weight: 845,
-            size: 40,
-            price: 399
-        }
-    },
-    {
-        id:6,
-        icon:'assets/images/pizza_4.jpg',
-        title: "Россо Густо",
-        type: 'Морська піца',
-        content: {
-            ocean: ['ікра червона', 'лосось копчений'],
-            cheese: ['сир моцарелла'],
-            additional: ['оливкова олія', 'вершки']
-        },
-        small_size:{
-            weight: 400,
-            size: 30,
-            price: 189
-        },
-        big_size:{
-            weight: 700,
-            size: 40,
-            price: 299
-        }
-    }
-];
-
-module.exports = pizza_info;
-},{}],4:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
@@ -415,692 +59,127 @@ exports.PizzaMenu_OneItem = ejs.compile("<%\r\n\r\nfunction getIngredientsArray(
 
 exports.PizzaCart_OneItem = ejs.compile("<div class=\"myOrder\">\r\n    <img class=\"pizzaIconInOrder\" alt=\"Піца\" src=\"<%=pizza.icon%>\">\r\n    <p>\r\n        <span class=\"order-title\"><%= pizza.title%> <%if(pizza.hasOwnProperty(\"big_size\")){%>(<%=nameSize%>)<%} %></span>\r\n    </p>\r\n    <div class=\"orderCharacteristics\">\r\n        <img class=\"orderSizeIcon\" src=\"assets/images/size-icon.svg\">\r\n        <span class=\"orderSize\"><%=pizza[size].size%></span>\r\n        <img class=\"orderWeightIcon\" src=\"assets/images/weight.svg\">\r\n        <span class=\"orderWeight\"><%=pizza[size].weight%></span>\r\n    </div>\r\n    <div class=\"price-box\">\r\n        <span class=\"price\"><%= pizza[size].price %>грн</span>\r\n        <div class=\"minus btn btn-xs btn-danger btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-minus\"></i>\r\n        </div>\r\n        <span class=\"label order-pizza-count\" style=\"color:black;\"><span class=\"labelPizzaOrder\" style=\"display:none\">x</span><%= quantity %></span>\r\n        <div class=\"plus btn btn-xs btn-success btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-plus \"></i>\r\n        </div>\r\n        <div class=\"removeButton count-clear btn btn-xs btn-default btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-remove\"></i>\r\n        </div>\r\n    </div>\r\n</div>");
 
-},{"ejs":10}],5:[function(require,module,exports){
-/**
- * Created by chaika on 25.01.16.
- */
+},{"ejs":5}],3:[function(require,module,exports){
+var Templates = require('./Templates');
 
 $(function(){
     //This code will execute when the page is ready
-    var PizzaMenu = require('./pizza/PizzaMenu');
-    var PizzaCart = require('./pizza/PizzaCart');
-    var Pizza_List = require('./Pizza_List');
+    var orderName = $("#inputName");
+    var orderPhone = $("#inputPhone");
+    var orderAddress = $("#inputAddress");
 
-    PizzaCart.initialiseCart();
-    PizzaMenu.initialiseMenu();
+    $("#inputPhone").keyup(function () {
+        var Value = $(this).val();
+        var flag= true;
 
+        var l = Value.length;
+        if(l>=1&&(Value[0]!="0"&&Value[0]!='+'))flag = false;
+        if(l<6||l>14)flag = false;
+        for(var i=1;i<l;i++) if(!(Value[i]>='0'&&Value[i]<='9'))flag=false;
 
-});
-},{"./Pizza_List":3,"./pizza/PizzaCart":6,"./pizza/PizzaMenu":7}],6:[function(require,module,exports){
-/**
- * Created by chaika on 02.02.16.
- */
-var Templates = require('../Templates');
-
-var basil = require('basil.js');
-basil = new basil();
-
-//Перелік розмірів піци
-var PizzaSize = {
-    Big: "big_size",
-    Small: "small_size"
-};
-var sizeNames = {
-    big_size: "Велика",
-    small_size: "Мала"
-}
-
-var allPrice = 0;
-var amountOfOrders = 0;
-
-//Змінна в якій зберігаються перелік піц в кошику
-var Cart = [];
-//HTML едемент куди будуть додаватися піци
-var $cart = $(".buyList");
-var flag=true;
-function addToCart(pizza, size) {
-    //Додавання однієї піци в кошик покупок
-
-    Cart.forEach(function(cart_item){
-        if(cart_item.pizza.title==pizza.title&&cart_item.size==size) {
-            cart_item.quantity += 1;
-            allPrice += pizza[size].price;
-            amountOfOrders += 1;
-            flag=false;
-            return;
+        if(!flag){
+            $(".phoneForm").addClass("has-error");
+            $(".phoneForm").removeClass("has-success");
+            $(".uncorrectPhone").removeClass("displayNone");
+        }
+        else  {
+            $(".phoneForm").removeClass("has-error");
+            $(".phoneForm").addClass("has-success");
+            $(".uncorrectPhone").addClass("displayNone");
         }
     });
-    if(flag){
-        allPrice += pizza[size].price;
-        amountOfOrders += 1;
-        Cart.push({
-            pizza: pizza,
-            size: size,
-            nameSize: sizeNames[size],
-            quantity: 1
-        });
-    }
-    flag=true;
-    //Оновити вміст кошика на сторінці
-    updateCart();
-}
 
-function removeFromCart(cart_item) {
-    //Видалити піцу з кошика
+    $("#inputName").keyup(function () {
+        var Value = $(this).val();
+        var flag= true;
 
-   if(Cart.indexOf(cart_item)!=-1) {
-       allPrice -= (cart_item.pizza[cart_item.size].price)*cart_item.quantity;
-       amountOfOrders -= cart_item.quantity;
-       delete Cart[Cart.indexOf(cart_item)];
-   }
-    Cart = Cart.filter(function(x) {
-        return x !== undefined && x !== null;
-    });
-    //Після видалення оновити відображення
-    updateCart();
-}
+        var l = Value.length;
+        for(var i=0;i<l;i++) if((Value[i]>='0'&&Value[i]<='9'))flag=false;
 
-var $amountOfPizz = $(".amountOfBoughtPizz");
-var $allPrice = $(".amountLabel");
-function initialiseCart() {
-    //Фукнція віпрацьвуватиме при завантаженні сторінки
-    //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-    console.log(Cart);
-    var savedOrders = basil.get('amountOfOrders');
-    if(savedOrders>0){
-        Cart = basil.get('orders');
-        Cart = Cart.filter(function(x) {
-            return x !== undefined && x !== null;
-        });
-        allPrice = basil.get('price');
-        amountOfOrders = basil.get('amountOfOrders');
-        console.log(Cart);
-    }
-
-    $(".orderButton").click(function () {
-        if(Cart.length!=0){
-            require("../API").createOrder(Cart,function () {
-                console.log(Cart.length);
-                document.location.href = "http://localhost:5050/order.html";
-                console.log( require("../API").getPizzaList(function(err,data){
-                    return data;
-                }));
-            });
-
+        if(!flag){
+            $(".nameForm").addClass("has-error");
+            $(".nameForm").removeClass("has-success");
+            $(".uncorrectName").removeClass("displayNone");
         }
-        console.log("button up");
+        else  {
+            $(".nameForm").removeClass("has-error");
+            $(".nameForm").addClass("has-success");
+            $(".uncorrectName").addClass("displayNone");
+        }
     });
 
-    $amountOfPizz.html("");
-    $amountOfPizz.append(amountOfOrders);
-    $allPrice.html("");
-    $allPrice.append(allPrice);
-    $(".labelOrderDelete").click(function(){
-        Cart.forEach(removeFromCart);
-    });
-    updateCart();
-}
+    var amount = 0;
+    var price = 0;
 
-function getPizzaInCart() {
-    //Повертає піци які зберігаються в кошику
-    return Cart;
-}
-
-function updateCart() {
-    //Функція викликається при зміні вмісту кошика
-    //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміст кошика в Local Storage
-
-    //Очищаємо старі піци в кошику
-    $cart.html("");
-    $amountOfPizz.html("");
-    $amountOfPizz.append(amountOfOrders);
-    $allPrice.html("");
-    $allPrice.append(allPrice+" грн");
-
-    //Онволення однієї піци
     function showOnePizzaInCart(cart_item) {
         var html_code = Templates.PizzaCart_OneItem(cart_item);
-
         var $node = $(html_code);
-
-        $node.find(".plus").click(function(){
-            //Збільшуємо кількість замовлених піц
-            cart_item.quantity += 1;
-            allPrice += cart_item.pizza[cart_item.size].price;
-            amountOfOrders += 1;
-            //Оновлюємо відображення
-            updateCart();
-        });
-
-        $node.find(".minus").click(function(){
-            //Збільшуємо кількість замовлених піц
-            if(cart_item.quantity>1){
-                cart_item.quantity -= 1;
-                allPrice -= cart_item.pizza[cart_item.size].price;
-                amountOfOrders -= 1;
-            }
-            else removeFromCart(cart_item);
-            //Оновлюємо відображення
-            updateCart();
-        });
-
-        $node.find(".removeButton").click(function(){
-            removeFromCart(cart_item);
-        });
+        var $cart = $(".buyList");
+        price+=cart_item.pizza[cart_item.size].price*cart_item.quantity;
+        amount+=cart_item.quantity;
         $cart.append($node);
     }
 
-    Cart.forEach(showOnePizzaInCart);
-    basil.set("orders",Cart);
-    basil.set("price",allPrice);
-    basil.set("amountOfOrders",amountOfOrders);
-}
+    var serv = require('./API');
+    var Cart = [];
 
-exports.removeFromCart = removeFromCart;
-exports.addToCart = addToCart;
-
-exports.getPizzaInCart = getPizzaInCart;
-exports.initialiseCart = initialiseCart;
-
-exports.PizzaSize = PizzaSize;
-},{"../API":2,"../Templates":4,"basil.js":8}],7:[function(require,module,exports){
-/**
- * Created by chaika on 02.02.16.
- */
-var Templates = require('../Templates');
-var PizzaCart = require('./PizzaCart');
-var Pizza_List = require('../../../Backend/data/Pizza_List');
-
-var pizzaCategories = {
-    all: 'all',
-    vega: 'Вега піца',
-    meat: 'meat',
-    ocean: 'ocean',
-    pineapple: 'pineapple',
-    mushroom: 'mushroom'
-}
-var pizzaCategoriesNames = {
-    all: 'Усі піци',
-    vega: 'Вега піци',
-    meat: 'М\'ясні піци',
-    ocean: 'З морепродуктами',
-    pineapple: 'З ананасами',
-    mushroom: 'З грибами'
-}
-
-//HTML едемент куди будуть додаватися піци
-var $pizza_list = $("#pizza_list");
-
-function showPizzaList(list) {
-    //Очищаємо старі піци в кошику
-    $pizza_list.html("");
-
-    //Онволення однієї піци
-    function showOnePizza(pizza) {
-        var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
-
-        var $node = $(html_code);
-
-        $node.find(".buy-button-big").click(function(){
-            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big);
-        });
-        $node.find(".buy-button-small").click(function(){
-            PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small);
-        });
-
-        $pizza_list.append($node);
-    }
-
-    list.forEach(showOnePizza);
-}
-
-function filterPizza(filter) {
-    //Масив куди потраплять піци які треба показати
-    var pizza_shown = [];
-    $('.labelAllPizz').text(pizzaCategoriesNames[filter]);
-
-    var amount = 0;
-
-    if(filter==pizzaCategories.all) {
-        pizza_shown = Pizza_List;
-        Pizza_List.forEach(function(pizza){
-            amount++;
-        });
-    }
-    else{
-        if(filter==pizzaCategories.meat||filter==pizzaCategories.pineapple||filter==pizzaCategories.ocean||filter==pizzaCategories.mushroom)
-            Pizza_List.forEach(function(pizza){
-                // console.log(pizza.content.hasOwnProperty(filter),1222);
-                if(pizza.content.hasOwnProperty(filter)){
-                    pizza_shown.push(pizza);
-                    amount++;
-                }
+    serv.getPizzaInOrder(function(err,data){
+        if(err){
+            console.log('Empty order list');
+        }
+        //Виконуємо якщо сервер не повернув помилку. data - масив піц в кошику
+        else {
+            Cart = data;
+            console.log("array");
+            console.log(Cart);
+            if(Cart.length>0)Cart.forEach(showOnePizzaInCart);
+            $('.amountLabel').html(price+" грн");
+            $('.amountOfBoughtPizz').html(amount);
+            $('.orderButton').click(function () {
+                document.location.href = "http://localhost:5050";
             });
-        else Pizza_List.forEach(function(pizza){
-            if(pizza.type==pizzaCategories.vega){
-                amount++;
-                pizza_shown.push(pizza);
-            }
-        });
-    }
-
-    $('.amountOfAllPizz').text(amount);
-
-    //Показати відфільтровані піци
-    showPizzaList(pizza_shown);
-}
-
-function initialiseMenu() {
-    //Показуємо усі піци
-    var list = $(".typeOfPizz");
-    var l = list.length;
-    $(".typeOfPizz").each(function (i,value) {
-
-        value = $(value);
-        value.click(function () {
-            for(var j=0;j<l;j++) if(j!=i) $(list[j]).removeClass("activeMenu");
-            value.addClass("activeMenu");
-            filterPizza(value.attr("id"));
-        });
-        // console.log(list[i]);
-        // console.log("value = ",value,i);
+            // $('.orderButton').html("Редагувати замовлення");
+            // $('.orderButton').attr("class","btn btn-default btn-lg btn-block orderButton")
+        }
     });
-    filterPizza(pizzaCategories.all);
-}
 
-exports.filterPizza = filterPizza;
-exports.initialiseMenu = initialiseMenu;
-},{"../../../Backend/data/Pizza_List":1,"../Templates":4,"./PizzaCart":6}],8:[function(require,module,exports){
-(function () {
-	// Basil
-	var Basil = function (options) {
-		return Basil.utils.extend({}, Basil.plugins, new Basil.Storage().init(options));
-	};
+    $('.submitButton').click(function () {
+        if($(".phoneForm").hasClass("has-success")&&$(".nameForm").hasClass("has-success")&&$orderAddress.val())
+        require("./API").createOrder({name:$(orderName).val(),phone:$(orderPhone).val(),address:$(orderAddress.val()),pizz:Cart},function () {
+            console.log("order created");
+            // console.log({name:$(orderName).val(),phone:$(orderPhone).val(),address:$(orderAddress).val()});
+        });
+        else {
+            if (!$(".nameForm").hasClass("has-success")) {
+                $(".nameForm").addClass("has-error");
+                $(".nameForm").removeClass("has-success");
+                $(".uncorrectName").removeClass("displayNone");
+            }
+            if (!$(".phoneForm").hasClass("has-success")) {
+                $(".phoneForm").addClass("has-error");
+                $(".phoneForm").removeClass("has-success");
+                $(".uncorrectPhone").removeClass("displayNone");
+            }
+            if(orderAddress.val()==""){
+                $(".addressForm").addClass("has-error");
+                $(".addressForm").removeClass("has-success");
+                $(".uncorrectAddress").removeClass("displayNone");
+                $(".addressForm").keyup(function () {
+                    $(".addressForm").removeClass("has-error");
+                    $(".addressForm").addClass("has-success");
+                    $(".uncorrectAddress").addClass("displayNone");
+                });
+            }
+        }
+    });
 
-	// Version
-	Basil.version = '0.4.4';
 
-	// Utils
-	Basil.utils = {
-		extend: function () {
-			var destination = typeof arguments[0] === 'object' ? arguments[0] : {};
-			for (var i = 1; i < arguments.length; i++) {
-				if (arguments[i] && typeof arguments[i] === 'object')
-					for (var property in arguments[i])
-						destination[property] = arguments[i][property];
-			}
-			return destination;
-		},
-		each: function (obj, fnIterator, context) {
-			if (this.isArray(obj)) {
-				for (var i = 0; i < obj.length; i++)
-					if (fnIterator.call(context, obj[i], i) === false) return;
-			} else if (obj) {
-				for (var key in obj)
-					if (fnIterator.call(context, obj[key], key) === false) return;
-			}
-		},
-		tryEach: function (obj, fnIterator, fnError, context) {
-			this.each(obj, function (value, key) {
-				try {
-					return fnIterator.call(context, value, key);
-				} catch (error) {
-					if (this.isFunction(fnError)) {
-						try {
-							fnError.call(context, value, key, error);
-						} catch (error) {}
-					}
-				}
-			}, this);
-		},
-		registerPlugin: function (methods) {
-			Basil.plugins = this.extend(methods, Basil.plugins);
-		},
-		getTypeOf: function (obj) {
-			if (typeof obj === 'undefined' || obj === null)
-				return '' + obj;
-			return Object.prototype.toString.call(obj).replace(/^\[object\s(.*)\]$/, function ($0, $1) { return $1.toLowerCase(); });
-		}
-	};
-  	// Add some isType methods: isArguments, isBoolean, isFunction, isString, isArray, isNumber, isDate, isRegExp, isUndefined, isNull.
-	var types = ['Arguments', 'Boolean', 'Function', 'String', 'Array', 'Number', 'Date', 'RegExp', 'Undefined', 'Null'];
-	for (var i = 0; i < types.length; i++) {
-		Basil.utils['is' + types[i]] = (function (type) {
-			return function (obj) {
-				return Basil.utils.getTypeOf(obj) === type.toLowerCase();
-			};
-		})(types[i]);
-	}
+});
 
-	// Plugins
-	Basil.plugins = {};
 
-	// Options
-	Basil.options = Basil.utils.extend({
-		namespace: 'b45i1',
-		storages: ['local', 'cookie', 'session', 'memory'],
-		expireDays: 365
-	}, window.Basil ? window.Basil.options : {});
+},{"./API":1,"./Templates":2}],4:[function(require,module,exports){
 
-	// Storage
-	Basil.Storage = function () {
-		var _salt = 'b45i1' + (Math.random() + 1)
-				.toString(36)
-				.substring(7),
-			_storages = {},
-			_isValidKey = function (key) {
-				var type = Basil.utils.getTypeOf(key);
-				return (type === 'string' && key) || type === 'number' || type === 'boolean';
-			},
-			_toStoragesArray = function (storages) {
-				if (Basil.utils.isArray(storages))
-					return storages;
-				return Basil.utils.isString(storages) ? [storages] : [];
-			},
-			_toStoredKey = function (namespace, path) {
-				var key = '';
-				if (_isValidKey(path)) {
-					key += path;
-				} else if (Basil.utils.isArray(path)) {
-					path = Basil.utils.isFunction(path.filter) ? path.filter(_isValidKey) : path;
-					key = path.join('.');
-				}
-				return key && _isValidKey(namespace) ? namespace + '.' + key : key;
- 			},
-			_toKeyName = function (namespace, key) {
-				if (!_isValidKey(namespace))
-					return key;
-				return key.replace(new RegExp('^' + namespace + '.'), '');
-			},
-			_toStoredValue = function (value) {
-				return JSON.stringify(value);
-			},
-			_fromStoredValue = function (value) {
-				return value ? JSON.parse(value) : null;
-			};
-
-		// HTML5 web storage interface
-		var webStorageInterface = {
-			engine: null,
-			check: function () {
-				try {
-					window[this.engine].setItem(_salt, true);
-					window[this.engine].removeItem(_salt);
-				} catch (e) {
-					return false;
-				}
-				return true;
-			},
-			set: function (key, value, options) {
-				if (!key)
-					throw Error('invalid key');
-				window[this.engine].setItem(key, value);
-			},
-			get: function (key) {
-				return window[this.engine].getItem(key);
-			},
-			remove: function (key) {
-				window[this.engine].removeItem(key);
-			},
-			reset: function (namespace) {
-				for (var i = 0, key; i < window[this.engine].length; i++) {
-					key = window[this.engine].key(i);
-					if (!namespace || key.indexOf(namespace) === 0) {
-						this.remove(key);
-						i--;
-					}
-				}
-			},
-			keys: function (namespace) {
-				var keys = [];
-				for (var i = 0, key; i < window[this.engine].length; i++) {
-					key = window[this.engine].key(i);
-					if (!namespace || key.indexOf(namespace) === 0)
-						keys.push(_toKeyName(namespace, key));
-				}
-				return keys;
-			}
-		};
-
-		// local storage
-		_storages.local = Basil.utils.extend({}, webStorageInterface, {
-			engine: 'localStorage'
-		});
-		// session storage
-		_storages.session = Basil.utils.extend({}, webStorageInterface, {
-			engine: 'sessionStorage'
-		});
-
-		// memory storage
-		_storages.memory = {
-			_hash: {},
-			check: function () {
-				return true;
-			},
-			set: function (key, value, options) {
-				if (!key)
-					throw Error('invalid key');
-				this._hash[key] = value;
-			},
-			get: function (key) {
-				return this._hash[key] || null;
-			},
-			remove: function (key) {
-				delete this._hash[key];
-			},
-			reset: function (namespace) {
-				for (var key in this._hash) {
-					if (!namespace || key.indexOf(namespace) === 0)
-						this.remove(key);
-				}
-			},
-			keys: function (namespace) {
-				var keys = [];
-				for (var key in this._hash)
-					if (!namespace || key.indexOf(namespace) === 0)
-						keys.push(_toKeyName(namespace, key));
-				return keys;
-			}
-		};
-
-		// cookie storage
-		_storages.cookie = {
-			check: function () {
-				if (!navigator.cookieEnabled)
-					return false;
-				if (window.self !== window.top) {
-					// we need to check third-party cookies;
-					var cookie = 'thirdparty.check=' + Math.round(Math.random() * 1000);
-					document.cookie = cookie + '; path=/';
-					return document.cookie.indexOf(cookie) !== -1;
-				}
-				return true;
-			},
-			set: function (key, value, options) {
-				if (!this.check())
-					throw Error('cookies are disabled');
-				options = options || {};
-				if (!key)
-					throw Error('invalid key');
-				var cookie = encodeURIComponent(key) + '=' + encodeURIComponent(value);
-				// handle expiration days
-				if (options.expireDays) {
-					var date = new Date();
-					date.setTime(date.getTime() + (options.expireDays * 24 * 60 * 60 * 1000));
-					cookie += '; expires=' + date.toGMTString();
-				}
-				// handle domain
-				if (options.domain && options.domain !== document.domain) {
-					var _domain = options.domain.replace(/^\./, '');
-					if (document.domain.indexOf(_domain) === -1 || _domain.split('.').length <= 1)
-						throw Error('invalid domain');
-					cookie += '; domain=' + options.domain;
-				}
-				// handle secure
-				if (options.secure === true) {
-					cookie += '; secure';
-				}
-				document.cookie = cookie + '; path=/';
-			},
-			get: function (key) {
-				if (!this.check())
-					throw Error('cookies are disabled');
-				var encodedKey = encodeURIComponent(key);
-				var cookies = document.cookie ? document.cookie.split(';') : [];
-				// retrieve last updated cookie first
-				for (var i = cookies.length - 1, cookie; i >= 0; i--) {
-					cookie = cookies[i].replace(/^\s*/, '');
-					if (cookie.indexOf(encodedKey + '=') === 0)
-						return decodeURIComponent(cookie.substring(encodedKey.length + 1, cookie.length));
-				}
-				return null;
-			},
-			remove: function (key) {
-				// remove cookie from main domain
-				this.set(key, '', { expireDays: -1 });
-				// remove cookie from upper domains
-				var domainParts = document.domain.split('.');
-				for (var i = domainParts.length; i >= 0; i--) {
-					this.set(key, '', { expireDays: -1, domain: '.' + domainParts.slice(- i).join('.') });
-				}
-			},
-			reset: function (namespace) {
-				var cookies = document.cookie ? document.cookie.split(';') : [];
-				for (var i = 0, cookie, key; i < cookies.length; i++) {
-					cookie = cookies[i].replace(/^\s*/, '');
-					key = cookie.substr(0, cookie.indexOf('='));
-					if (!namespace || key.indexOf(namespace) === 0)
-						this.remove(key);
-				}
-			},
-			keys: function (namespace) {
-				if (!this.check())
-					throw Error('cookies are disabled');
-				var keys = [],
-					cookies = document.cookie ? document.cookie.split(';') : [];
-				for (var i = 0, cookie, key; i < cookies.length; i++) {
-					cookie = cookies[i].replace(/^\s*/, '');
-					key = decodeURIComponent(cookie.substr(0, cookie.indexOf('=')));
-					if (!namespace || key.indexOf(namespace) === 0)
-						keys.push(_toKeyName(namespace, key));
-				}
-				return keys;
-			}
-		};
-
-		return {
-			init: function (options) {
-				this.setOptions(options);
-				return this;
-			},
-			setOptions: function (options) {
-				this.options = Basil.utils.extend({}, this.options || Basil.options, options);
-			},
-			support: function (storage) {
-				return _storages.hasOwnProperty(storage);
-			},
-			check: function (storage) {
-				if (this.support(storage))
-					return _storages[storage].check();
-				return false;
-			},
-			set: function (key, value, options) {
-				options = Basil.utils.extend({}, this.options, options);
-				if (!(key = _toStoredKey(options.namespace, key)))
-					return false;
-				value = options.raw === true ? value : _toStoredValue(value);
-				var where = null;
-				// try to set key/value in first available storage
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage, index) {
-					_storages[storage].set(key, value, options);
-					where = storage;
-					return false; // break;
-				}, null, this);
-				if (!where) {
-					// key has not been set anywhere
-					return false;
-				}
-				// remove key from all other storages
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage, index) {
-					if (storage !== where)
-						_storages[storage].remove(key);
-				}, null, this);
-				return true;
-			},
-			get: function (key, options) {
-				options = Basil.utils.extend({}, this.options, options);
-				if (!(key = _toStoredKey(options.namespace, key)))
-					return null;
-				var value = null;
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage, index) {
-					if (value !== null)
-						return false; // break if a value has already been found.
-					value = _storages[storage].get(key, options) || null;
-					value = options.raw === true ? value : _fromStoredValue(value);
-				}, function (storage, index, error) {
-					value = null;
-				}, this);
-				return value;
-			},
-			remove: function (key, options) {
-				options = Basil.utils.extend({}, this.options, options);
-				if (!(key = _toStoredKey(options.namespace, key)))
-					return;
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage) {
-					_storages[storage].remove(key);
-				}, null, this);
-			},
-			reset: function (options) {
-				options = Basil.utils.extend({}, this.options, options);
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage) {
-					_storages[storage].reset(options.namespace);
-				}, null, this);
-			},
-			keys: function (options) {
-				options = options || {};
-				var keys = [];
-				for (var key in this.keysMap(options))
-					keys.push(key);
-				return keys;
-			},
-			keysMap: function (options) {
-				options = Basil.utils.extend({}, this.options, options);
-				var map = {};
-				Basil.utils.tryEach(_toStoragesArray(options.storages), function (storage) {
-					Basil.utils.each(_storages[storage].keys(options.namespace), function (key) {
-						map[key] = Basil.utils.isArray(map[key]) ? map[key] : [];
-						map[key].push(storage);
-					}, this);
-				}, null, this);
-				return map;
-			}
-		};
-	};
-
-	// Access to native storages, without namespace or basil value decoration
-	Basil.memory = new Basil.Storage().init({ storages: 'memory', namespace: null, raw: true });
-	Basil.cookie = new Basil.Storage().init({ storages: 'cookie', namespace: null, raw: true });
-	Basil.localStorage = new Basil.Storage().init({ storages: 'local', namespace: null, raw: true });
-	Basil.sessionStorage = new Basil.Storage().init({ storages: 'session', namespace: null, raw: true });
-
-	// browser export
-	window.Basil = Basil;
-
-	// AMD export
-	if (typeof define === 'function' && define.amd) {
-		define(function() {
-			return Basil;
-		});
-	// commonjs export
-	} else if (typeof module !== 'undefined' && module.exports) {
-		module.exports = Basil;
-	}
-
-})();
-
-},{}],9:[function(require,module,exports){
-
-},{}],10:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1968,7 +1047,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":12,"./utils":11,"fs":9,"path":13}],11:[function(require,module,exports){
+},{"../package.json":7,"./utils":6,"fs":4,"path":8}],6:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -2134,7 +1213,7 @@ exports.cache = {
   }
 };
 
-},{}],12:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.4.1",
   "_id": "ejs@2.5.7",
@@ -2215,7 +1294,7 @@ module.exports={
   "version": "2.5.7"
 }
 
-},{}],13:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2443,7 +1522,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":14}],14:[function(require,module,exports){
+},{"_process":9}],9:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -2629,4 +1708,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[5]);
+},{}]},{},[3]);
