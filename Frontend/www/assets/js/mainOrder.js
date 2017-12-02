@@ -144,7 +144,7 @@ $(function(){
     });
 
     $('.submitButton').click(function () {
-        if($(".phoneForm").hasClass("has-success")&&$(".nameForm").hasClass("has-success")&&$orderAddress.val())
+        if($(orderPhone).hasClass("has-success")&&$(orderName).hasClass("has-success")&&$(orderAddress).val())
         require("./API").createOrder({name:$(orderName).val(),phone:$(orderPhone).val(),address:$(orderAddress.val()),pizz:Cart},function () {
             console.log("order created");
             // console.log({name:$(orderName).val(),phone:$(orderPhone).val(),address:$(orderAddress).val()});
