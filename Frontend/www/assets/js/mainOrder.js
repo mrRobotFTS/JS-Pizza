@@ -59,8 +59,140 @@ exports.PizzaMenu_OneItem = ejs.compile("<%\r\n\r\nfunction getIngredientsArray(
 
 exports.PizzaCart_OneItem = ejs.compile("<div class=\"myOrder\">\r\n    <img class=\"pizzaIconInOrder\" alt=\"Піца\" src=\"<%=pizza.icon%>\">\r\n    <p>\r\n        <span class=\"order-title\"><%= pizza.title%> <%if(pizza.hasOwnProperty(\"big_size\")){%>(<%=nameSize%>)<%} %></span>\r\n    </p>\r\n    <div class=\"orderCharacteristics\">\r\n        <img class=\"orderSizeIcon\" src=\"assets/images/size-icon.svg\">\r\n        <span class=\"orderSize\"><%=pizza[size].size%></span>\r\n        <img class=\"orderWeightIcon\" src=\"assets/images/weight.svg\">\r\n        <span class=\"orderWeight\"><%=pizza[size].weight%></span>\r\n    </div>\r\n    <div class=\"price-box\">\r\n        <span class=\"price\"><%= pizza[size].price %>грн</span>\r\n        <div class=\"minus btn btn-xs btn-danger btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-minus\"></i>\r\n        </div>\r\n        <span class=\"label order-pizza-count\" style=\"color:black;\"><span class=\"labelPizzaOrder\" style=\"display:none\">x</span><%= quantity %></span>\r\n        <div class=\"plus btn btn-xs btn-success btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-plus \"></i>\r\n        </div>\r\n        <div class=\"removeButton count-clear btn btn-xs btn-default btn-circle\" >\r\n            <i class=\"glyphicon glyphicon-remove\"></i>\r\n        </div>\r\n    </div>\r\n</div>");
 
-},{"ejs":5}],3:[function(require,module,exports){
+},{"ejs":6}],3:[function(require,module,exports){
+var map;
+var marker;
+var directionsDisplay;
+var homeMarker;
+
+//щоб іконки нормально центрувались
+var image = new google.maps.MarkerImage("assets/images/map-icon.png",new google.maps.Size(50,50),new google.maps.Point(0,0),new google.maps.Point(25,25));
+var imageHome = new google.maps.MarkerImage("assets/images/home-icon.png",new google.maps.Size(50,50),new google.maps.Point(0,0),new google.maps.Point(25,25));
+
+function initialize() {
+//Тут починаємо працювати з картою
+
+    directionsDisplay = new google.maps.DirectionsRenderer({
+        suppressMarkers : true // не использовать маркеры
+    });
+
+    var mapProp = {
+        center: new google.maps.LatLng(50.464379,30.519131),
+        zoom: 13
+    };
+    var html_element = document.getElementById("myMap");
+    map = new google.maps.Map(html_element, mapProp);
+    //Карта створена і показана
+    homeMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(50.464379,30.519131),
+        map: map,
+        title: "pizza;)",
+        icon: imageHome
+    });
+    directionsDisplay.setMap(map);
+
+    google.maps.event.addListener(map, 'click',function(me){
+
+        var coordinates = me.latLng;
+
+        geocodeLatLng(coordinates, function(err, adress){
+            if(!err) {
+                //Дізналися адресу
+                //console.log(adress);
+                document.getElementById('inputAddress').value = adress;
+                $(document.getElementById('addressOfDestination')).text(adress);
+                // console.log("A: "+homeMarker.getPosition()+"; B: "+coordinates);
+                calculateRoute(homeMarker.getPosition(),coordinates, function(err,res){
+                    //console.log("time = "+Math.ceil(res.duration.value/60)+" хв");
+                    if(!err)$(document.getElementById('timeOfWaiting')).text(Math.ceil(res.duration.value/60)+" хв");
+                });
+
+            } else {
+                console.log("Немає адреси");
+                document.getElementById('inputAddress').value = "";
+            }
+        })
+    });
+
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
+
+    $('#inputAddress').keyup(function(){
+        var address = $('#inputAddress').val();
+        console.log(address);
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            // console.log(results[0].geometry.location);
+            if (status == 'OK') {
+                calculateRoute(homeMarker.getPosition(),results[0].geometry.location,function(err,res){
+                    //console.log("time = "+Math.ceil(res.duration.value/60)+" хв");
+                    if(!err){
+                        $(document.getElementById('timeOfWaiting')).text(Math.ceil(res.duration.value/60)+" хв");
+                        $(document.getElementById('addressOfDestination')).text(address);
+                    }
+                });
+
+            }
+        });
+    });
+
+}
+
+function geocodeLatLng(latlng, callback){
+//Модуль за роботу з адресою
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK && results[1]) {
+            var adress = results[1].formatted_address;
+            callback(null, adress);
+        } else {
+            callback(new Error("Can't find adress"));
+        }
+    });
+}
+
+
+function calculateRoute(A_latlng, B_latlng, callback) {
+    var directionService = new google.maps.DirectionsService();
+    directionService.route({
+        origin: A_latlng,
+        destination: B_latlng,
+        travelMode: google.maps.TravelMode["DRIVING"]
+    }, function(response, status) {
+        if ( status == google.maps.DirectionsStatus.OK ) {
+            var leg = response.routes[ 0 ].legs[ 0 ];
+            directionsDisplay.setDirections(response);
+
+            if(marker)marker.setMap(null);
+            marker = new google.maps.Marker({
+                position: response.routes[0].legs[0].end_location,
+                map: map,
+                icon: image,
+                title:  "Destination"
+            });
+
+            homeMarker.setMap(null);
+            homeMarker = new google.maps.Marker({
+                position: response.routes[0].legs[0].start_location,
+                map: map,
+                icon: imageHome,
+                title:  "Destination"
+            });
+
+            callback(null, {
+                duration: leg.duration
+            });
+        } else {
+            callback(new Error("Can' not find direction"));
+        }
+    });
+}
+
+exports.initialize = initialize();
+
+
+},{}],4:[function(require,module,exports){
 var Templates = require('./Templates');
+var maps = require('./googleMaps');
 
 $(function(){
     //This code will execute when the page is ready
@@ -95,6 +227,7 @@ $(function(){
 
         var l = Value.length;
         for(var i=0;i<l;i++) if((Value[i]>='0'&&Value[i]<='9'))flag=false;
+        if(Value.length<1) flag = false;
 
         if(!flag){
             $(".nameForm").addClass("has-error");
@@ -174,12 +307,15 @@ $(function(){
     });
 
 
+    google.maps.event.addDomListener(window, 'load', maps.initialize);
+
+
 });
 
 
-},{"./API":1,"./Templates":2}],4:[function(require,module,exports){
+},{"./API":1,"./Templates":2,"./googleMaps":3}],5:[function(require,module,exports){
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1047,7 +1183,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":7,"./utils":6,"fs":4,"path":8}],6:[function(require,module,exports){
+},{"../package.json":8,"./utils":7,"fs":5,"path":9}],7:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1213,7 +1349,7 @@ exports.cache = {
   }
 };
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.4.1",
   "_id": "ejs@2.5.7",
@@ -1294,7 +1430,7 @@ module.exports={
   "version": "2.5.7"
 }
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1522,7 +1658,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":9}],9:[function(require,module,exports){
+},{"_process":10}],10:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1708,4 +1844,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[3]);
+},{}]},{},[4]);

@@ -1,4 +1,5 @@
 var Templates = require('./Templates');
+var maps = require('./googleMaps');
 
 $(function(){
     //This code will execute when the page is ready
@@ -33,6 +34,7 @@ $(function(){
 
         var l = Value.length;
         for(var i=0;i<l;i++) if((Value[i]>='0'&&Value[i]<='9'))flag=false;
+        if(Value.length<1) flag = false;
 
         if(!flag){
             $(".nameForm").addClass("has-error");
@@ -110,6 +112,9 @@ $(function(){
             }
         }
     });
+
+
+    google.maps.event.addDomListener(window, 'load', maps.initialize);
 
 
 });

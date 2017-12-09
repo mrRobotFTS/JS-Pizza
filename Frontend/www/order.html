@@ -81,10 +81,10 @@
                 <h4>Інформація про замовлення</h4>
                 <dl class="dl-horizontal">
                     <dt class="timeLabel">Приблизний час доставки:</dt>
-                    <dd class="timeOfWaiting">невідомий</dd>
+                    <dd class="timeOfWaiting" id="timeOfWaiting">невідомий</dd>
 
                     <dt>Адреса доставки:</dt>
-                    <dd class="timeOfWaiting">невідома</dd>
+                    <dd class="addressOfDestination">невідома</dd>
                 </dl>
             </div>
         </div>
@@ -94,6 +94,10 @@
         <div class="submitButtonContainer">
             <button class="btn btn-warning submitButton">Далі<i class="glyphicon glyphicon-chevron-right"></i></button>
         </div>
+    </div>
+
+    <div id="myMap">
+
     </div>
 
 </div>
@@ -125,6 +129,9 @@
     </p>
 </footer>
 
+<script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbrF0HjH4O06NMsFsFrOdphy8G2MvxJBs">
+</script>
 
 <!-- jQuery JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
